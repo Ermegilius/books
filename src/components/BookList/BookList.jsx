@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import BasicCard from '../BasicCard/BasicCard';
 import { styled } from '@mui/material/styles';
+
+import Stack from '@mui/material/Stack';
+
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Grid from '@mui/material/Grid2';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -50,21 +53,19 @@ function BookList() {
 
     return (
       <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={2} rowSpacing={1} size={16}>
+        <Stack direction="row" spacing={2} >
             {isLoading ?
                 (<p>Loading...</p>
                 ) : (
                   books.map((book) => (
-                    <Grid size={2} key={book.id}>
-                      <Item>
+                      <Item key={book.id}>
                         <BasicCard key={book.id} {...book} handleNavigate={handleNavigate}
                         updateBook={updateBook}/>
                       </Item>
-                    </Grid>
                   ))
                 )
             }
-        </Grid>
+        </Stack>
       </Box>
     );
 };

@@ -20,7 +20,7 @@ const bull = (
 
 export default function BasicCard({id, author, name, genres,completed,start,end,stars,img}) {
   return (
-    <Card >
+    <Card sx={{ minWidth: 200 }}>
        <CardMedia
         component="img"
         height="120"
